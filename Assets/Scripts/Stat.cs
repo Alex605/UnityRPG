@@ -12,6 +12,9 @@ public class Stat : MonoBehaviour
 
     private float currentFill;
 
+    [SerializeField]
+    private float lerpSpeed;
+
     public float MyMaxValue {get; set; }
         
     private float currentValue;
@@ -40,8 +43,13 @@ public class Stat : MonoBehaviour
                 currentValue = value;
             }
 
-            currentFill = currentValue / MyMaxValue;
-            statValue.text = currentValue + " / " + MyMaxValue;
+            currentFill = currentValue / MyMaxValue; 
+
+            if (statValue != null)
+            {
+                statValue.text = currentValue + " / " + MyMaxValue; //makes sure we update the value text
+            }
+          
         }
 
     }
